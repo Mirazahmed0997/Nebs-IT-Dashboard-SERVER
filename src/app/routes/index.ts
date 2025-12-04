@@ -5,6 +5,7 @@ import { authRoutes } from "../Modules/Auth/auth.route";
 
 import { departmentRouter } from "../Modules/Department/Department.Route";
 import { employeeRoutes } from "../Modules/Employee/Emplyee.route";
+import { noticeRoute } from "../Modules/Notice/Notice.route";
 
 
 export const router= Router()
@@ -25,7 +26,11 @@ const moduleRoutes=[
     {
         path:'/Employee',
         route:employeeRoutes
-    }
+    },
+    {
+        path:'/Notice',
+        route:noticeRoute
+    },
 ]
 
 moduleRoutes.forEach((route)=>

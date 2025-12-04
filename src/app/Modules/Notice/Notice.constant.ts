@@ -1,0 +1,1 @@
+export const noticeSearchFields=["targetType","departmentIds","employeeId","title","noticeType","publishDate"]
