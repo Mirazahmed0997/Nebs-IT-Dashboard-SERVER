@@ -20,13 +20,13 @@ export  interface INotice{
   departmentIds?: Types.ObjectId,  // When targetType = "department"
   employeeId?: Types.ObjectId,       // When targetType = "individual"
 
-  title: String,
-  noticeType: String,         // Holiday, HR & Policy, Warning, Emergency, etc.
-  body: String,
+  title: string,
+  noticeType: string,         // Holiday, HR & Policy, Warning, Emergency, etc.
+  body: string,
 
   publishDate: Date,
 
-  attachments?:String
+  attachments?:string
 
   status: isActive,             // "published" | "draft" | "unpublished"
   createdBy: Types.ObjectId,        // Admin or HR user who created it

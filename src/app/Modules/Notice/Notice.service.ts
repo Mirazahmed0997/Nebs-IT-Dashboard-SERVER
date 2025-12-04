@@ -44,7 +44,7 @@ const getAllNotice = async (query: Record<string, string>) => {
 
 
 const SingleNotice = async (id: string) => {
-  const notice = await Notice.findOne({_id:id})
+  const notice = await Notice.findOne({_id:id}).populate("departmentIds").populate("employeeId")
   return {
     data: notice,
   }
@@ -66,6 +66,11 @@ const updateNotice = async (id: string, payload: Partial<INotice>) => {
     new: true, 
     runValidators: true,
   });
+
+    if(payload.attachments && isExist.attachments)
+    {
+      await deletImageFromCloudinary(isExist.attachments)
+    }
 
   
 

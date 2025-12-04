@@ -52,7 +52,7 @@ const getAllEmployee = async (query: Record<string, string>) => {
 
 const getEmployeeById = async (id : string) => {
 
-    const emplyee = await Employee.findOne({_id:id}).populate("departmentId")
+    const emplyee = await Employee.findOne({_id:id}).populate("department")
     return emplyee
       
 
@@ -71,7 +71,7 @@ const updateEmployee = async (id: string, payload: Partial<IEmp>) => {
     const updatedEmployee = await Employee.findByIdAndUpdate(id, payload, {
         new: true, 
         runValidators: true, 
-    }).populate("departmentId");
+    })
 
     return updatedEmployee;
 };

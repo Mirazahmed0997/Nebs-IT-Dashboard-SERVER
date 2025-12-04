@@ -7,7 +7,7 @@ const empSchema = new Schema<IEmp>({
     name: { type: String, required: true, trim: true },
     email: { type: String, required: true, trim: true },
     employeeId: { type: Number, required: true, trim: true },
-    departmentId: {
+    department: {
         type: Schema.Types.ObjectId,
         ref: "Department",
         required: true
@@ -17,6 +17,9 @@ const empSchema = new Schema<IEmp>({
         enum: Object.values(Role),
         default: Role.OPERATIONS
           }
+},
+{
+    timestamps:true
 })
 
 export const Employee = model<IEmp>("Employee", empSchema)

@@ -30,6 +30,9 @@ const noticeSchema = new Schema<INotice>({
             enum: Object.values(isActive),
             default:isActive.UNPUBLISHED
         }
+},
+{
+    timestamps: true
 })
 
 export const  Notice= model<INotice>("Notice",noticeSchema)

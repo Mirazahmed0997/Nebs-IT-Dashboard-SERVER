@@ -65,6 +65,7 @@ const getSingleNotice = catchAsynch(async (req: Request, res: Response, next: Ne
 const updateNotice = catchAsynch(
   async (req: Request, res: Response, next: NextFunction) => {
     const { id } = req.params; 
+    req.body = JSON.parse(req.body.data)
     const payload: INotice = {
       ...req.body,
       attachments: req.file?.path
