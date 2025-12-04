@@ -3,7 +3,7 @@ import { IDepartment } from "./Department.interface";
 
 
 const departmentSchema = new Schema<IDepartment>({
-    title: {type: String,required: true, unique:true}
+    title: {type: String,required: true, unique:true,trim:true}
 },
 {
     timestamps: true

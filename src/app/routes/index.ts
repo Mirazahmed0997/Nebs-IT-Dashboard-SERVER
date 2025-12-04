@@ -7,6 +7,7 @@ import { TourTypeRoute } from "../Modules/Tour/Tour.route";
 import { TourRoute } from "../Modules/Tour/TourModel.route";
 import { BookingRoutes } from "../Modules/Booking/Booking.route";
 import { PaymentRoute } from "../Modules/Payment/Payment.route";
+import { departmentRouter } from "../Modules/Department/Department.Route";
 
 
 export const router= Router()
@@ -42,7 +43,7 @@ const moduleRoutes=[
     },
     {
         path:'/Department',
-        route: PaymentRoute
+        route: departmentRouter
     },
 ]
 

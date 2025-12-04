@@ -66,34 +66,32 @@ const getDepartmentById = async (id : string) => {
 
 
 
-const updateDepartment = async (id: string, payload: Partial<ITourType>) => {
-    // Check if the division exists
-    const isExist = await TourType.findById(id);
+const updateDepartment = async (id: string, payload: Partial<IDepartment>) => {
+
+    const isExist = await Department.findById(id);
 
     if (!isExist) {
-        throw new AppError(httpStatus.NOT_FOUND, "Tour Type not found");
+        throw new AppError(httpStatus.NOT_FOUND, "Department not found");
     }
 
-    // Update division
-    const updatedTourType = await TourType.findByIdAndUpdate(id, payload, {
+    const updatedDepartment = await Department.findByIdAndUpdate(id, payload, {
         new: true, // return the updated document
         runValidators: true, // run schema validators
     });
 
-    return updatedTourType;
+    return updatedDepartment;
 };
 
 
-const deleteTourType = async (id: string) => {
-    // Check if the division exists
-    const isExist = await TourType.findById(id);
+const deleteDepartment = async (id: string) => {
+    const isExist = await Department.findById(id);
 
     if (!isExist) {
-        throw new AppError(httpStatus.NOT_FOUND, "Tour Type not found");
+        throw new AppError(httpStatus.NOT_FOUND, "Department not found");
     }
 
-    const deleteTourType = await TourType.findByIdAndDelete(id)
-    return deleteTourType
+    const deletedDepartment = await Department.findByIdAndDelete(id)
+    return deletedDepartment
 };
 
 
@@ -101,4 +99,6 @@ export const departmentService={
     createDepartment,
     getAllDepartment,
     getDepartmentById,
+    updateDepartment,
+    deleteDepartment
 }

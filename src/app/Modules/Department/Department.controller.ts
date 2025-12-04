@@ -31,7 +31,7 @@ const getAllDepartment = catchAsynch(async (req: Request, res: Response, next: N
   const query=req.query
 
   console.log(query)
-  const departments = await TourTypeService.getAllTourTypes(query as Record<string, string>)
+  const departments = await departmentService.getAllDepartment(query as Record<string, string>)
 
   sendResponse(res, {
     success: true,
@@ -48,7 +48,7 @@ const getAllDepartment = catchAsynch(async (req: Request, res: Response, next: N
 const getDepartmentById = catchAsynch(async (req: Request, res: Response, next: NextFunction) => {
   const id = req.params.id
   console.log(id)
-  const department = await TourTypeService.getSingleTourType(id as string)
+  const department = await departmentService.getDepartmentById(id as string)
 
 
   sendResponse(res, {
@@ -64,7 +64,7 @@ const updateDepartment = catchAsynch(
     const { id } = req.params; 
     const payload = req.body;  
 
-    const updatedDepartment = await TourTypeService.updateTourType(id as string, payload);
+    const updatedDepartment = await departmentService.updateDepartment(id as string, payload);
 
     sendResponse(res, {
       success: true,
@@ -79,7 +79,7 @@ const deleteDepartment = catchAsynch(
   async (req: Request, res: Response, next: NextFunction) => {
     const { id } = req.params; // ✅ get division ID from URL
 
-    const deletedDepartment = await TourTypeService.deleteTourType(id as string);
+    const deletedDepartment = await departmentService.deleteDepartment(id as string);
 
     // ✅ send proper response
     sendResponse(res, {
