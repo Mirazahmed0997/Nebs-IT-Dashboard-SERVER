@@ -17,17 +17,17 @@ export  interface INotice{
 
   targetType: Target,         
 
-  departmentIds?: Types.ObjectId,  // When targetType = "department"
-  employeeId?: Types.ObjectId,       // When targetType = "individual"
+  departmentIds?: Types.ObjectId,  
+  employeeId?: Types.ObjectId,       
 
   title: string,
-  noticeType: string,         // Holiday, HR & Policy, Warning, Emergency, etc.
+  noticeType: string,         
   body: string,
 
   publishDate: Date,
 
   attachments?:string
 
-  status: isActive,             // "published" | "draft" | "unpublished"
-  createdBy: Types.ObjectId,        // Admin or HR user who created it
+  status: isActive,            
+  createdBy: Types.ObjectId,        
 }

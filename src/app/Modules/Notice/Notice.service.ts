@@ -29,6 +29,7 @@ const getAllNotice = async (query: Record<string, string>) => {
     .fields()
     .paginate()
     .sort()
+    .populate("departmentIds").populate("employeeId")
 
   const [data, meta] = await Promise.all([
     notices.build(),
