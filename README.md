@@ -4,6 +4,10 @@ To start the project run
 * npm i
 * npm run dev
 * i have excluded env file from gitigonre in case not working here is my env content  >>>
+
+
+
+
 PORT = 5000
 DB_URL=mongodb+srv://peakRoute:peakRoute@cluster0.ljhdru4.mongodb.net/nebs-dashboard?retryWrites=true&w=majority&appName=Cluster0
 NODE_ENV=Development
