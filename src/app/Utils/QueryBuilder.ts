@@ -21,16 +21,6 @@ export class QueryBuilder<T> {
 
     }
 
-    // search(searchableField: string[]): this {
-    //     const searchTerm = this.query.searchTerm || ""
-    //     const searchQuery = {
-    //         $or: searchableField.map(field => ({ [field]: { $regex: searchTerm, $options: "i" } }))
-    //     }
-    //     this.modelQuery = this.modelQuery.find(searchQuery)
-    //     return this
-    // }
-
-
 
     search(searchableFields: string[]): this {
         const searchTerm = this.query.searchTerm;
@@ -73,6 +63,12 @@ export class QueryBuilder<T> {
         this.modelQuery = this.modelQuery.skip(skip).limit(limit)
         return this
     }
+
+   populate(fields: string | string[]): this {
+    this.modelQuery = this.modelQuery.populate(fields);
+    return this;
+}
+
 
     build() {
         return this.modelQuery

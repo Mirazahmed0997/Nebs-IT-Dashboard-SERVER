@@ -51,7 +51,6 @@ const SingleNotice = async (id: string) => {
 }
 
 
-
 const updateNotice = async (id: string, payload: Partial<INotice>) => {
 
   const isExist = await Notice.findById(id);
@@ -60,22 +59,56 @@ const updateNotice = async (id: string, payload: Partial<INotice>) => {
     throw new AppError(httpStatus.NOT_FOUND, "Notice not found");
   }
 
+  const updateData: any = {};
 
+  if (payload.status) updateData.status = payload.status;
+  if (payload.title) updateData.title = payload.title;
+  if (payload.noticeType) updateData.noticeType = payload.noticeType;
+  if (payload.attachments) updateData.attachments = payload.attachments;
 
-  const updatedNotice = await Notice.findByIdAndUpdate(id, payload, {
-    new: true, 
-    runValidators: true,
-  });
-
-    if(payload.attachments && isExist.attachments)
+  const updatedNotice = await Notice.findByIdAndUpdate(
+    id,
+    updateData,                     
     {
-      await deletImageFromCloudinary(isExist.attachments)
+      new: true,
+      runValidators: true,
     }
+  );
 
-  
+  if (payload.attachments && isExist.attachments) {
+    await deletImageFromCloudinary(isExist.attachments);
+  }
 
   return updatedNotice;
 };
+
+
+
+// const updateNotice = async (id: string, payload: Partial<INotice>) => {
+
+//   const isExist = await Notice.findById(id);
+
+//   if (!isExist) {
+//     throw new AppError(httpStatus.NOT_FOUND, "Notice not found");
+//   }
+
+
+
+//   const updatedNotice = await Notice.findByIdAndUpdate(id, payload, {
+//     { status: payload.status }
+//     new: true, 
+//     runValidators: true,
+//   });
+
+//     if(payload.attachments && isExist.attachments)
+//     {
+//       await deletImageFromCloudinary(isExist.attachments)
+//     }
+
+  
+
+//   return updatedNotice;
+// };
 
 
 const deleteNotice = async (id: string) => {

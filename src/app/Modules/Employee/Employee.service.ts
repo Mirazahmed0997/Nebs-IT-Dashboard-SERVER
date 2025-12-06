@@ -37,6 +37,7 @@ const getAllEmployee = async (query: Record<string, string>) => {
         .fields() 
         .paginate()
         .sort()
+        .populate("department")
     
       const [data, meta] = await Promise.all([
         employees.build(),
