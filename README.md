@@ -4,7 +4,7 @@ to run the project >>>
 
 I have hosted the backend at render 
 url:https://nebs-it-dashboard-server.onrender.com
-or localhost : 5000
+or localhost : http://localhost:5000/
 
 I have done authentication with differnet role but i didn't protected the routes to see the funcionality smoothly.
 *jwt, 
