@@ -35,7 +35,6 @@ const startServer= async()=>
    await seedSuperAdmin()
 })()
 
-// unhandled rejection error
 
 process.on("unhandledRejection",(err)=>
 {
@@ -54,7 +53,6 @@ process.on("unhandledRejection",(err)=>
 
 
 
-// uncaught rejection error
 
 process.on("uncaughtException",(err)=>
 {
@@ -71,7 +69,6 @@ process.on("uncaughtException",(err)=>
 })
 
 
-// signal termination sigterm
 process.on("SIGTERM",()=>
 {
     console.log("sigterm signal recieved")
@@ -87,7 +84,6 @@ process.on("SIGTERM",()=>
 })
 
 
-// sigint termination sigterm
 process.on("SIGINT",()=>
 {
     console.log("SIGINT signal recieved")
