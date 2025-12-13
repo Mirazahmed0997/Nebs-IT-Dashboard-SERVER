@@ -12,8 +12,6 @@ import { verifyAuth } from "../../middlewares/CheckAuth";
 
 
 
-    
-
 const router =Router()
 
 
